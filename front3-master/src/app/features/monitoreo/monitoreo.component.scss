@@ -1,0 +1,208 @@
+/* 🌌 CONTENEDOR */ // Contenedor principal del monitoreo
+.home-container {
+  width: 100%; // Ocupa todo el ancho
+  max-width: 1100px; // Limita el ancho máximo
+  margin: 0 auto; // Centra horizontalmente
+  color: #dfffe0; // Color del texto
+}
+
+/* 🧠 HERO */ // Encabezado principal
+.hero {
+  background: linear-gradient(135deg, #0f3d2e, #145a32); // Fondo degradado
+  padding: 45px; // Espaciado interno
+  border-radius: 20px; // Bordes redondeados
+  text-align: center; // Centra contenido
+  margin-bottom: 35px; // Espacio inferior
+  position: relative; // Para posicionar elementos internos
+  overflow: hidden; // Oculta desbordes
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5); // Sombra
+}
+
+/* efecto glow */ // Efecto visual decorativo
+.hero::after {
+  content: ""; // Elemento vacío
+  position: absolute; // Posición absoluta
+  width: 220px; // Tamaño
+  height: 220px; // Tamaño
+  background: rgba(0,255,120,0.06); // Color tenue
+  border-radius: 50%; // Forma circular
+  top: -60px; // Posición arriba
+  right: -60px; // Posición derecha
+}
+
+/* 🔴 LIVE */ // Indicador de transmisión en vivo
+.live {
+  position: absolute; // Posición dentro del hero
+  top: 18px; // Separación superior
+  left: 20px; // Separación izquierda
+  background: #ff3b3b; // Fondo rojo
+  color: white; // Texto blanco
+  font-size: 12px; // Tamaño pequeño
+  font-weight: 700; // Negrita
+  padding: 6px 14px; // Espaciado interno
+  border-radius: 999px; // Forma de píldora
+  letter-spacing: 1px; // Espaciado letras
+  box-shadow: 0 0 12px rgba(255,60,60,0.7); // Brillo
+  animation: pulse 1.5s infinite; // Animación continua
+}
+
+/* animación */ // Definición de animación
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(255,60,60,0.5); } // Inicio
+  50% { box-shadow: 0 0 16px rgba(255,60,60,0.9); } // Pico
+  100% { box-shadow: 0 0 0 rgba(255,60,60,0.5); } // Fin
+}
+
+/* 📊 GRID KPI */ // Contenedor de KPIs
+.kpi-grid {
+  display: grid; // Usa grid
+  grid-template-columns: 2fr 1fr 1fr; // Columnas proporcionales
+  gap: 18px; // Espacio entre elementos
+  margin-bottom: 25px; // Espacio inferior
+}
+
+/* 🧪 TARJETAS KPI */ // Estilo de tarjetas KPI
+.kpi-card {
+  background: linear-gradient(135deg, #121a17, #18231e); // Fondo degradado
+  padding: 24px; // Espaciado interno
+  border-radius: 14px; // Bordes redondeados
+  color: #c8f7d2; // Color texto
+  border: 1px solid rgba(0,255,120,0.12); // Borde suave
+  transition: 0.25s; // Animación
+}
+
+/* primera card más grande */ // Destaca la primera tarjeta
+.kpi-card:first-child {
+  grid-row: span 2; // Ocupa dos filas
+  font-size: 18px; // Texto más grande
+  background: linear-gradient(135deg, #0f3d2e, #1b5e20); // Fondo especial
+  border-left: 4px solid #00e676; // Línea lateral
+}
+
+/* hover */ // Efecto al pasar mouse
+.kpi-card:hover {
+  transform: translateY(-6px); // Eleva tarjeta
+  box-shadow: 0 14px 30px rgba(0,0,0,0.4); // Sombra
+  border-color: rgba(0,255,120,0.3); // Borde más visible
+}
+
+/* títulos */ // Estilo de títulos KPI
+.kpi-card h3 {
+  font-size: 13px; // Tamaño pequeño
+  font-weight: 600; // Seminegrita
+  color: rgba(200,255,220,0.7); // Color tenue
+  margin-bottom: 12px; // Espacio inferior
+  text-transform: uppercase; // Mayúsculas
+  letter-spacing: 1px; // Espaciado
+}
+
+/* valores */ // Estilo de valores KPI
+.kpi-card p {
+  font-size: 20px; // Tamaño grande
+  font-weight: 700; // Negrita
+  margin: 6px 0; // Espaciado vertical
+  display: flex; // Flexbox
+  justify-content: space-between; // Distribuye contenido
+}
+
+/* 🌿 CARD GENERAL */ // Tarjetas generales
+.card {
+  background: #141c18; // Fondo oscuro
+  padding: 25px; // Espaciado interno
+  border-radius: 14px; // Bordes redondeados
+  color: #dfffe0; // Color texto
+  border: 1px solid rgba(0,255,120,0.1); // Borde
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); // Sombra
+}
+
+/* 📈 CHART */ // Contenedor del gráfico
+.chart {
+  width: 100%; // Ancho completo
+  height: 320px; // Altura fija
+  border-radius: 10px; // Bordes redondeados
+}
+
+/* 🔌 PANEL LED */ // Panel de LEDs
+.led-panel {
+  margin-top: 20px; // Espacio superior
+}
+
+/* contenedor */ // Contenedor de LEDs
+.led-container {
+  display: flex; // Flexbox
+  gap: 14px; // Espacio entre LEDs
+  margin-top: 15px; // Espacio superior
+}
+
+/* pill */ // Estilo de cada LED
+.led-pill {
+  display: flex; // Flexbox
+  align-items: center; // Centra vertical
+  gap: 10px; // Espacio interno
+  padding: 8px 14px; // Espaciado
+  border-radius: 999px; // Forma de píldora
+  font-weight: 600; // Seminegrita
+  font-size: 12px; // Tamaño texto
+  color: #dfffe0; // Color texto
+  background: rgba(255,255,255,0.05); // Fondo tenue
+  border: 1px solid rgba(0,255,120,0.1); // Borde
+  transition: 0.25s; // Animación
+}
+
+/* punto */ // Indicador visual del LED
+.dot {
+  width: 10px; // Tamaño
+  height: 10px; // Tamaño
+  border-radius: 50%; // Circular
+  background: #444; // Color base
+}
+
+/* 🟢 ACTIVO */ // LED encendido
+.led-pill.active {
+  background: rgba(0,255,120,0.12); // Fondo verde
+}
+
+.led-pill.active .dot {
+  background: #00e676; // Punto verde
+  box-shadow: 0 0 10px #00e676; // Brillo
+}
+
+/* 🔴 INACTIVO */ // LED apagado
+.led-pill.inactive {
+  background: rgba(255,0,0,0.1); // Fondo rojo tenue
+}
+
+.led-pill.inactive .dot {
+  background: #ff3b3b; // Punto rojo
+}
+
+/* ✨ EFECTOS */ // Animaciones globales
+.hero,
+.kpi-card,
+.card,
+.led-panel {
+  transition: all 0.25s ease; // Transición suave
+}
+
+.hero:hover,
+.kpi-card:hover,
+.card:hover,
+.led-panel:hover {
+  transform: translateY(-6px); // Eleva elementos
+  box-shadow: 0 14px 35px rgba(0,0,0,0.4); // Sombra
+}
+
+/* 📱 RESPONSIVE */ // Adaptación a móviles
+@media (max-width: 900px) {
+  .kpi-grid {
+    grid-template-columns: 1fr; // Una sola columna
+  }
+
+  .kpi-card:first-child {
+    grid-row: span 1; // Quita tamaño extra
+  }
+
+  .led-container {
+    flex-direction: column; // LEDs en columna
+  }
+}

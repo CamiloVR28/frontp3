@@ -1,0 +1,55 @@
+<div class="home-container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Centro de Monitoreo</h1>
+    <p>ESP32 · Actualizado {{ lastUpdate | date:'HH:mm:ss' }}</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid">
+
+    <div class="kpi-card">
+      <h3>Temperatura</h3>
+      <p>{{ currentTemp ?? '--' }} °C</p>
+    </div>
+
+    <div class="kpi-card">
+      <h3>Humedad</h3>
+      <p>{{ currentHum ?? '--' }} %</p>
+    </div>
+
+    <div class="kpi-card">
+      <h3>Suelo</h3>
+      <p>{{ currentSoil ?? '--' }}</p>
+    </div>
+
+  </div>
+
+  <!-- CHART -->
+  <div class="card chart-card">
+    <h3>Monitoreo en Tiempo Real</h3>
+    <div class="chart chart-large">
+      <canvas id="unifiedCanvas"></canvas>
+    </div>
+  </div>
+
+  <!-- LED PANEL -->
+  <div class="card led-panel">
+    <h3>Estado de LEDs</h3>
+    <div class="led-container">
+      <div
+        class="led-pill"
+        *ngFor="let led of ledEntries"
+        [ngClass]="{
+          'active': led.value === 'on',
+          'inactive': led.value !== 'on'
+        }"
+      >
+        <span class="dot"></span>
+        <span class="label">{{ led.key }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,153 @@
+/* 🌑 FONDO GENERAL (con efecto más pro) */ // Estilos generales del contenedor principal
+.home-container {
+  width: 100%; // Ocupa todo el ancho disponible
+  max-width: 1100px; // Limita el ancho máximo
+  margin: 0 auto; // Centra el contenedor horizontalmente
+  padding: 20px; // Espaciado interno
+  min-height: 100vh; // Altura mínima de toda la pantalla
+
+  background: radial-gradient(circle at top, #1a2a24, #0b110f); // Fondo degradado oscuro
+}
+
+/* 🌿 HERO */ // Estilos del encabezado principal
+.hero {
+  background: linear-gradient(135deg, #1b5e20, #0f3d2e); // Fondo degradado verde oscuro
+  padding: 45px 30px; // Espaciado interno
+  border-radius: 20px; // Bordes redondeados
+  color: #e8f5e9; // Color del texto
+  text-align: center; // Centra el contenido
+  margin-bottom: 35px; // Espacio inferior
+
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.6), // Sombra externa profunda
+    0 0 25px rgba(34,197,94,0.15); // Brillo verde suave
+}
+
+/* 🌱 GRID KPI */ // Contenedor de las tarjetas KPI
+.kpi-grid {
+  display: grid; // Usa grid layout
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); // Columnas adaptables
+  gap: 20px; // Espacio entre tarjetas
+  margin-bottom: 25px; // Espacio inferior
+}
+
+/* 🔥 KPI CARDS NUEVAS (WOW) */ // Estilos base de cada tarjeta KPI
+.kpi-card {
+  position: relative; // Necesario para pseudo-elementos
+  background: linear-gradient(145deg, #1c2622, #141c19); // Fondo degradado
+  padding: 22px; // Espaciado interno
+  border-radius: 18px; // Bordes redondeados
+  color: #e8f5e9; // Color del texto
+  overflow: hidden; // Oculta contenido que se salga
+
+  box-shadow: 
+    0 8px 20px rgba(0,0,0,0.5), // Sombra externa
+    inset 0 0 0 1px rgba(102,187,106,0.15); // Borde interno tenue
+
+  transition: all 0.35s ease; // Animación suave
+}
+
+/* ✨ BORDE ILUMINADO */ // Efecto visual en borde
+.kpi-card::before {
+  content: ""; // Elemento decorativo
+  position: absolute; // Posición absoluta dentro del card
+  inset: 0; // Ocupa todo el espacio
+  border-radius: 18px; // Mantiene bordes redondeados
+  padding: 1px; // Grosor del borde
+  background: linear-gradient(120deg, #22c55e, #4ade80, transparent); // Degradado brillante
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0); // Máscara para efecto de borde
+  -webkit-mask-composite: xor; // Combina máscaras
+  mask-composite: exclude; // Excluye contenido interno
+}
+
+/* 💡 LUZ INTERNA */ // Efecto de luz dentro del card
+.kpi-card::after {
+  content: ""; // Elemento decorativo
+  position: absolute; // Posición absoluta
+  width: 200px; // Tamaño
+  height: 200px;
+  background: radial-gradient(circle, rgba(34,197,94,0.15), transparent 70%); // Luz difusa
+  top: -50px; // Posición vertical
+  right: -50px; // Posición horizontal
+  opacity: 0.6; // Transparencia
+}
+
+/* 🚀 HOVER PRO */ // Efecto al pasar el mouse
+.kpi-card:hover {
+  transform: translateY(-8px) scale(1.02); // Eleva y agranda ligeramente
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.7), // Sombra más intensa
+    0 0 25px rgba(34,197,94,0.25); // Brillo verde más fuerte
+}
+
+/* 📝 TEXTO KPI */ // Estilos del texto en KPI
+.kpi-card h3 {
+  font-size: 13px; // Tamaño pequeño
+  font-weight: 600; // Seminegrita
+  color: #81c784; // Verde claro
+  letter-spacing: 1px; // Espaciado entre letras
+  text-transform: uppercase; // Texto en mayúsculas
+  margin-bottom: 10px; // Espacio inferior
+}
+
+.kpi-card p {
+  font-size: 20px; // Tamaño grande
+  font-weight: 700; // Negrita
+  margin: 8px 0; // Margen vertical
+  display: flex; // Flexbox
+  justify-content: space-between; // Distribuye contenido en extremos
+}
+
+/* 🌿 CARD GENERAL MEJORADA */ // Estilos generales para tarjetas
+.card {
+  background: linear-gradient(145deg, #18221e, #101715); // Fondo degradado
+  padding: 24px; // Espaciado interno
+  border-radius: 18px; // Bordes redondeados
+  color: #d0e6d6; // Color del texto
+
+  box-shadow: 
+    0 10px 25px rgba(0,0,0,0.5), // Sombra externa
+    inset 0 0 0 1px rgba(255,255,255,0.05); // Borde interno
+
+  margin-bottom: 18px; // Espacio inferior
+  transition: 0.3s; // Animación suave
+}
+
+.card:hover {
+  transform: translateY(-5px); // Eleva el card
+  box-shadow: 
+    0 18px 35px rgba(0,0,0,0.7), // Sombra más fuerte
+    0 0 20px rgba(34,197,94,0.15); // Brillo verde
+}
+
+/* 📊 CHART CARD */ // Estilos específicos para la tarjeta de gráfica
+.chart-card {
+  background: linear-gradient(145deg, #18221e, #101715); // Fondo similar al card general
+}
+
+.chart-card h3 {
+  font-size: 18px; // Tamaño del título
+  font-weight: 700; // Negrita
+  margin-bottom: 12px; // Espacio inferior
+  color: #a5d6a7; // Verde claro
+}
+
+/* 📈 CONTENEDOR DEL GRÁFICO */ // Contenedor del canvas
+.chart-container {
+  width: 100%; // Ancho completo
+  height: 340px; // Altura fija
+  background: #0f1513; // Fondo oscuro
+  border-radius: 14px; // Bordes redondeados
+  padding: 12px; // Espaciado interno
+
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6); // Sombra interna
+}
+
+/* 📱 RESPONSIVE */ // Estilos para pantallas pequeñas
+@media (max-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: 1fr; // Una sola columna en móviles
+  }
+}

@@ -1,0 +1,76 @@
+<div class="layout"> <!-- Contenedor principal del layout -->
+
+  <!-- 🌐 HEADER --> <!-- Encabezado superior -->
+  <div class="header"> <!-- Contenedor del header -->
+
+    <!-- LOGO --> <!-- Sección izquierda -->
+    <div class="header-left"> <!-- Contenedor del logo -->
+      <img src="/images/logo.png" class="logo-header" alt="Greenhouse IoT System"> <!-- Imagen del logo -->
+    </div>
+
+    <!-- 🧠 TÍTULO --> <!-- Sección central -->
+    <div class="header-center"> <!-- Contenedor del título -->
+      <h2>🌱 Greenhouse IoT | {{ currentPageTitle || 'Dashboard' }}</h2> <!-- Muestra título dinámico de la página -->
+
+      <div class="system-status"> <!-- Estado del sistema -->
+        🟢 Sistema operativo | Sensores activos <!-- Indicador visual de funcionamiento -->
+      </div>
+    </div>
+
+    <!-- 👤 USUARIO --> <!-- Sección derecha -->
+    <div class="header-right" (click)="toggleUserMenu()"> <!-- Contenedor usuario con evento click -->
+
+      <span class="username"> <!-- Nombre del usuario -->
+        {{ userEmail || 'Usuario' }} <!-- Muestra email o texto por defecto -->
+      </span>
+
+      <img src="/images/contacto.png" class="user-icon" alt="Usuario"> <!-- Icono de usuario -->
+
+      <!-- DROPDOWN --> <!-- Menú desplegable -->
+      <div class="dropdown" *ngIf="showUserMenu"> <!-- Se muestra solo si está activo -->
+        <div class="dropdown-item" (click)="logout()"> <!-- Opción de cerrar sesión -->
+          <img src="/images/salida.svg" alt="Cerrar sesión"> <!-- Icono -->
+          <span>Cerrar sesión</span> <!-- Texto -->
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 📊 BODY --> <!-- Contenedor principal debajo del header -->
+  <div class="body"> <!-- Contenedor de sidebar + contenido -->
+
+    <!-- 📡 SIDEBAR --> <!-- Menú lateral -->
+    <div class="sidebar" [class.collapsed]="isCollapsed"> <!-- Sidebar con clase dinámica -->
+
+      <div class="menu-item toggle" (click)="toggleSidebar()"> <!-- Botón para colapsar -->
+        <img src="/images/menu.svg" class="icon"> <!-- Icono -->
+        <span *ngIf="!isCollapsed">Control</span> <!-- Texto visible solo si no está colapsado -->
+      </div>
+
+      <div class="menu-item" routerLink="/home" routerLinkActive="active"> <!-- Enlace a Home -->
+        <img src="/images/home1.png" class="icon"> <!-- Icono -->
+        <span *ngIf="!isCollapsed">Home</span> <!-- Texto condicional -->
+      </div>
+
+      <div class="menu-item" routerLink="/dashboard" routerLinkActive="active"> <!-- Enlace a Dashboard -->
+        <img src="/images/dashboard_icon.svg" class="icon"> <!-- Icono -->
+        <span *ngIf="!isCollapsed">Dashboard</span> <!-- Texto -->
+      </div>
+
+      <div class="menu-item" routerLink="/monitoreo" routerLinkActive="active"> <!-- Enlace a Monitoreo -->
+        <img src="/images/monitoreo_icon.svg" class="icon"> <!-- Icono -->
+        <span *ngIf="!isCollapsed">Monitoreo</span> <!-- Texto -->
+      </div>
+
+    </div>
+
+    <!-- 📦 CONTENIDO --> <!-- Área principal de contenido -->
+    <div class="content"> <!-- Contenedor donde se renderizan las vistas -->
+      <router-outlet></router-outlet> <!-- Aquí Angular carga los componentes según la ruta -->
+    </div>
+
+  </div>
+
+</div> <!-- Fin del layout -->

@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap'); // Importa fuente futurista desde Google Fonts
+
+/* 🌑 RESET */ // Reinicia estilos por defecto del navegador
+* {
+  margin: 0; // Elimina márgenes
+  padding: 0; // Elimina padding
+  box-sizing: border-box; // Incluye borde y padding en el tamaño total
+  font-family: 'Orbitron', sans-serif; // Aplica fuente global
+}
+
+/* 🌌 LAYOUT GENERAL */ // Contenedor principal de la aplicación
+.layout {
+  display: flex; // Usa flexbox
+  flex-direction: column; // Dirección vertical
+  min-height: 100vh; // Ocupa toda la altura de la pantalla
+  background: radial-gradient(circle at top, #0b1f14, #050a07); // Fondo degradado oscuro
+  color: #dfffe0; // Color del texto
+}
+
+/* 🧠 HEADER (más tecnológico) */ // Estilos del encabezado
+.header {
+  position: relative; // Permite posicionar elementos internos
+  height: 85px; // Altura fija
+  background: linear-gradient(135deg, #0f3d2e, #145a32); // Fondo degradado
+  display: flex; // Flexbox
+  align-items: center; // Centra verticalmente
+  padding: 0 30px; // Espaciado horizontal
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6); // Sombra
+  z-index: 10; // Prioridad visual
+  border-bottom: 1px solid rgba(0, 255, 120, 0.15); // Línea inferior
+}
+
+/* logo */ // Estilos del logo
+.logo-header {
+  height: 55px; // Altura del logo
+  filter: drop-shadow(0 0 6px rgba(0,255,120,0.2)); // Efecto de brillo
+}
+
+/* centro */ // Sección central del header
+.header-center {
+  position: absolute; // Posición absoluta
+  left: 50%; // Centrado horizontal
+  transform: translateX(-50%); // Ajuste exacto al centro
+}
+
+.header-center h2 {
+  color: #b9f6ca; // Color verde claro
+  font-size: 26px; // Tamaño del texto
+  font-weight: 700; // Negrita
+  letter-spacing: 2px; // Espaciado entre letras
+  text-transform: uppercase; // Texto en mayúsculas
+}
+
+/* usuario */ // Sección de usuario
+.header-right {
+  margin-left: auto; // Empuja a la derecha
+  display: flex; // Flexbox
+  align-items: center; // Centra verticalmente
+  gap: 10px; // Espacio entre elementos
+  cursor: pointer; // Cursor tipo botón
+  position: relative; // Para posicionar dropdown
+}
+
+.username {
+  font-size: 15px; // Tamaño texto
+  font-weight: 600; // Seminegrita
+  color: #c8f7d2; // Color verde claro
+}
+
+.user-icon {
+  width: 26px; // Ancho
+  height: 26px; // Alto
+  filter: brightness(0) invert(1); // Convierte icono a blanco
+}
+
+/* dropdown (más glassmorphism) */ // Menú desplegable
+.dropdown {
+  position: absolute; // Posición relativa al contenedor
+  top: 55px; // Separación vertical
+  right: 0; // Alineado a la derecha
+  background: rgba(20, 40, 30, 0.95); // Fondo semi-transparente
+  backdrop-filter: blur(10px); // Efecto vidrio (blur)
+  border: 1px solid rgba(0, 255, 120, 0.15); // Borde suave
+  border-radius: 12px; // Bordes redondeados
+  padding: 10px; // Espaciado interno
+  width: 170px; // Ancho fijo
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); // Sombra
+}
+
+.dropdown-item {
+  display: flex; // Flexbox
+  gap: 10px; // Espacio entre elementos
+  padding: 10px; // Espaciado interno
+  cursor: pointer; // Cursor interactivo
+  color: #dfffe0; // Color texto
+  border-radius: 8px; // Bordes redondeados
+  transition: all 0.2s ease; // Animación suave
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 255, 120, 0.15); // Fondo al hacer hover
+  transform: translateX(3px); // Movimiento lateral
+}
+
+/* 🌿 BODY */ // Contenedor principal inferior
+.body {
+  display: flex; // Flexbox
+  flex: 1; // Ocupa espacio restante
+}
+
+/* 🌌 SIDEBAR (más futurista) */ // Menú lateral
+.sidebar {
+  width: 230px; // Ancho
+  background: linear-gradient(180deg, #0d1f15, #08110c); // Fondo degradado
+  padding: 20px; // Espaciado interno
+  flex-shrink: 0; // Evita que se reduzca
+  transition: 0.3s; // Animación
+  border-right: 1px solid rgba(0, 255, 120, 0.08); // Borde lateral
+}
+
+/* colapsado */ // Estado reducido del sidebar
+.sidebar.collapsed {
+  width: 75px; // Ancho reducido
+}
+
+.sidebar.collapsed .menu-item {
+  justify-content: center; // Centra íconos
+}
+
+.sidebar.collapsed span {
+  display: none; // Oculta texto
+}
+
+/* menú */ // Elementos del menú
+.menu-item {
+  display: flex; // Flexbox
+  align-items: center; // Centra verticalmente
+  gap: 14px; // Espacio entre icono y texto
+  padding: 14px; // Espaciado interno
+  margin-bottom: 12px; // Separación entre items
+  border-radius: 12px; // Bordes redondeados
+  cursor: pointer; // Cursor interactivo
+  color: #c8f7d2; // Color texto
+  font-weight: 600; // Seminegrita
+  transition: all 0.25s ease; // Animación
+  border: 1px solid transparent; // Borde base
+}
+
+/* hover glow */ // Efecto al pasar el mouse
+.menu-item:hover {
+  background: rgba(0, 255, 120, 0.08); // Fondo
+  border-color: rgba(0, 255, 120, 0.2); // Borde visible
+  transform: translateX(5px); // Movimiento lateral
+}
+
+/* activo (más tech) */ // Estado activo del menú
+.menu-item.active {
+  background: linear-gradient(90deg, #00e676, #1b5e20); // Fondo degradado
+  color: #06130b; // Color oscuro
+  box-shadow: 0 0 12px rgba(0, 255, 120, 0.3); // Brillo
+}
+
+/* iconos */ // Estilo de íconos
+.icon {
+  width: 20px; // Ancho
+  height: 20px; // Alto
+  filter: brightness(0) invert(1); // Hace íconos blancos
+}
+
+/* 🌿 CONTENIDO */ // Área principal donde se renderiza contenido
+.content {
+  flex: 1; // Ocupa espacio restante
+  padding: 40px; // Espaciado interno
+  display: flex; // Flexbox
+  justify-content: center; // Centra horizontal
+  align-items: flex-start; // Alinea arriba
+  background: radial-gradient(circle at center, #0b1a12, #060b08); // Fondo
+}
+
+/* ✨ animación suave global */ // Transiciones suaves globales
+.header,
+.sidebar,
+.menu-item,
+.dropdown {
+  transition: all 0.25s ease; // Aplica animación a varios elementos
+}

@@ -1,0 +1,204 @@
+/* 🌌 FONDO GENERAL */ // Contenedor principal de la pantalla de login
+.login-background {
+  min-height: 100vh; // Ocupa toda la altura de la pantalla
+  width: 100%; // Ancho completo
+  display: grid; // Usa grid para centrar
+  place-items: center; // Centra contenido horizontal y vertical
+  padding: 24px; // Espaciado interno
+
+  /* 🖼️ Ruta exacta a tu imagen */ // Imagen de fondo
+  background-image: url('/images/cesinicio.jpg'); 
+  
+  /* 🛠️ Esto corrige el error de la imagen gigante */ // Ajustes de la imagen
+  background-size: cover;      // Hace que cubra toda la pantalla sin deformarse
+  background-position: center; // Centra la imagen
+  background-repeat: no-repeat; // Evita repetición
+  background-attachment: fixed; // Fija la imagen al hacer scroll
+
+  position: relative; // Permite superponer elementos
+  overflow: hidden; // Oculta desbordes
+
+}
+
+/* 🌫 capa tecnológica */ // Capa oscura con efecto blur encima del fondo
+.login-background::before {
+  content: ""; // Elemento vacío
+  position: absolute; // Posición absoluta
+  inset: 0; // Ocupa todo el contenedor
+  background: rgba(0, 0, 0, 0.55); // Oscurece el fondo
+  backdrop-filter: blur(6px); // Aplica desenfoque
+}
+
+/* 🧠 CARD PRINCIPAL */ // Tarjeta del formulario
+.login-card {
+  position: relative; // Para estar encima del overlay
+  width: 100%; // Ancho completo
+  max-width: 420px; // Máximo ancho
+  padding: 34px; // Espaciado interno
+
+  background: rgba(15, 35, 25, 0.6); // Fondo semi-transparente
+  backdrop-filter: blur(18px); // Efecto vidrio
+
+  border-radius: 20px; // Bordes redondeados
+  border: 1px solid rgba(0, 255, 120, 0.12); // Borde suave
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5); // Sombra
+
+  text-align: center; // Centra contenido
+}
+
+/* 🌿 LOGO */ // Estilo del logo
+.logo {
+  width: 180px; // Tamaño del logo
+  margin: 0 auto 18px auto; // Centrado con espacio inferior
+  filter: drop-shadow(0 0 10px rgba(0,255,120,0.2)); // Efecto brillo
+}
+
+/* 🧬 TITULO */ // Estilo del título principal
+h2 {
+  font-size: 30px; // Tamaño grande
+  margin-bottom: 8px; // Espacio inferior
+
+  background: linear-gradient(90deg, #00e676, #b9f6ca); // Degradado
+  -webkit-background-clip: text; // Aplica degradado al texto
+  -webkit-text-fill-color: transparent; // Hace transparente el texto base
+
+  letter-spacing: 2px; // Espaciado entre letras
+  text-transform: uppercase; // Mayúsculas
+}
+
+/* 🌱 SUBTITULO */ // Estilo del subtítulo
+.subtitle {
+  margin-bottom: 22px; // Espacio inferior
+  color: rgba(200, 255, 220, 0.75); // Color suave
+  font-size: 13px; // Tamaño pequeño
+}
+
+/* 🧪 FORM */ // Contenedor del formulario
+form {
+  display: flex; // Flexbox
+  flex-direction: column; // Elementos en columna
+  gap: 14px; // Espacio entre elementos
+  text-align: left; // Alineación izquierda
+}
+
+/* LABEL */ // Estilo de etiquetas
+label {
+  font-size: 12px; // Tamaño pequeño
+  font-weight: 600; // Seminegrita
+  color: #b9f6ca; // Verde claro
+  letter-spacing: 1px; // Espaciado
+}
+
+/* 🧊 INPUTS */ // Estilo de campos de entrada
+input {
+  width: 100%; // Ocupa todo el ancho
+  padding: 12px 14px; // Espaciado interno
+  border-radius: 10px; // Bordes redondeados
+
+  border: 1px solid rgba(0, 255, 120, 0.15); // Borde suave
+  background: rgba(0, 0, 0, 0.35); // Fondo oscuro
+  color: #eaffea; // Color del texto
+
+  font-size: 14px; // Tamaño texto
+
+  box-sizing: border-box; // Incluye padding en tamaño
+  transition: 0.25s; // Animación
+}
+
+/* focus glow */ // Efecto al seleccionar input
+input:focus {
+  outline: none; // Quita borde por defecto
+  border-color: #00e676; // Cambia color del borde
+  box-shadow: 0 0 12px rgba(0, 255, 120, 0.2); // Brillo
+  transform: scale(1.01); // Ligero zoom
+}
+
+/* placeholder */ // Estilo del texto guía
+input::placeholder {
+  color: rgba(255,255,255,0.35); // Color tenue
+}
+
+/* 🔐 PASSWORD */ // Contenedor del input de contraseña
+.password-container {
+  position: relative; // Para posicionar icono
+  width: 100%; // Ancho completo
+}
+
+.password-container input {
+  padding-right: 45px; // Espacio para el icono
+}
+
+/* 👁 ICONO */ // Icono de mostrar/ocultar contraseña
+.eye-icon {
+  position: absolute; // Posición sobre el input
+  right: 12px; // A la derecha
+  top: 50%; // Centrado vertical
+  transform: translateY(-50%); // Ajuste exacto
+  width: 18px; // Tamaño
+  height: 18px; // Tamaño
+  cursor: pointer; // Cursor interactivo
+  opacity: 0.5; // Semi-transparente
+  transition: 0.2s; // Animación
+}
+
+.eye-icon:hover {
+  opacity: 1; // Más visible al pasar mouse
+}
+
+/* ❌ ERROR */ // Mensajes de error
+.error-text {
+  color: #ff6b6b; // Color rojo
+  font-size: 12px; // Tamaño pequeño
+  min-height: 14px; // Mantiene espacio aunque no haya texto
+}
+
+/* 🚀 BOTÓN */ // Botón de envío
+button {
+  margin-top: 12px; // Espacio superior
+  width: 100%; // Ancho completo
+  padding: 14px; // Espaciado interno
+
+  border-radius: 10px; // Bordes redondeados
+  border: none; // Sin borde
+
+  background: linear-gradient(90deg, #00e676, #1b5e20); // Fondo degradado
+  color: #06130b; // Texto oscuro
+
+  font-weight: 700; // Negrita
+  letter-spacing: 1px; // Espaciado letras
+
+  cursor: pointer; // Cursor interactivo
+  transition: 0.25s; // Animación
+}
+
+/* hover */ // Efecto al pasar mouse
+button:hover {
+  transform: translateY(-3px); // Se eleva
+  box-shadow: 0 0 18px rgba(0, 255, 120, 0.25); // Brillo
+}
+
+/* click */ // Efecto al hacer clic
+button:active {
+  transform: scale(0.98); // Se reduce ligeramente
+}
+
+/* 🔗 REGISTRO */ // Texto de registro
+.register-text {
+  margin-top: 16px; // Espacio superior
+  text-align: center; // Centrado
+  color: rgba(220,255,230,0.8); // Color suave
+  font-size: 13px; // Tamaño
+}
+
+.link-register {
+  color: #00e676; // Verde llamativo
+  cursor: pointer; // Cursor interactivo
+  font-weight: 600; // Seminegrita
+  transition: 0.2s; // Animación
+}
+
+.link-register:hover {
+  color: #b9f6ca; // Cambio de color
+  text-shadow: 0 0 8px rgba(0,255,120,0.3); // Brillo
+}

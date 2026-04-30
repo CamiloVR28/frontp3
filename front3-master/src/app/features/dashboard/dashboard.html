@@ -1,0 +1,86 @@
+<div class="home-container">
+
+  <!-- 🌿 HERO -->
+  <div class="hero">
+    <h1>🌱 Sistema de Análisis de Invernadero Inteligente</h1>
+    <p>
+      Plataforma de monitoreo en tiempo real para variables ambientales,
+      diseñada para optimizar el crecimiento de cultivos mediante análisis de datos.
+    </p>
+  </div>
+
+  <!-- 📊 KPIs NUEVO LAYOUT -->
+  <div class="kpi-grid">
+
+    <!-- 🔥 KPI PRINCIPAL -->
+    <div class="kpi-card main">
+      <h3>🌡️ Temperatura</h3>
+      <p>Máximo: <span>{{ summary.tempMax }} °C</span></p>
+      <p>Mínimo: <span>{{ summary.tempMin }} °C</span></p>
+      <small>Sensor HTU21D (control térmico del entorno)</small>
+    </div>
+
+    <!-- 📊 KPI 2 -->
+    <div class="kpi-card small">
+      <h3>💧 Humedad Aire</h3>
+      <p>Max: <span>{{ summary.humAmbMax }} %</span></p>
+      <p>Min: <span>{{ summary.humAmbMin }} %</span></p>
+    </div>
+
+    <!-- 📊 KPI 3 -->
+    <div class="kpi-card small">
+      <h3>🌱 Humedad Suelo</h3>
+      <p>Max: <span>{{ summary.humSueloMax }}</span></p>
+      <p>Min: <span>{{ summary.humSueloMin }}</span></p>
+    </div>
+
+    <!-- ✨ EXTRA CARD DIFERENTE (rompe el patrón) -->
+    <div class="kpi-card wide">
+      <h3>📊 Estado General</h3>
+      <p>Sistema funcionando correctamente</p>
+      <small>Monitoreo activo en tiempo real</small>
+    </div>
+
+  </div>
+
+  <!-- 📈 CHART -->
+  <div class="card chart-card">
+    <h3>📈 Evolución de la Temperatura</h3>
+    <p class="chart-subtitle">
+      Variación térmica en el tiempo para análisis de comportamiento ambiental.
+    </p>
+
+    <div class="chart-container">
+      <canvas
+        baseChart
+        [data]="lineChartData"
+        [type]="lineChartType"
+        [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+
+  <!-- 🧠 SECCIÓN DOBLE (nuevo estilo lado a lado) -->
+  <div class="info-grid">
+
+    <div class="card">
+      <h3>📌 Estado del Sistema</h3>
+      <p>✔ Sensores activos</p>
+      <p>✔ Datos en tiempo real</p>
+      <p>✔ Sistema estable</p>
+      <p>✔ Registro histórico habilitado</p>
+    </div>
+
+    <div class="card">
+      <h3>🌍 Objetivo del Sistema</h3>
+      <p>
+        Optimizar cultivos mediante monitoreo inteligente y análisis de datos.
+      </p>
+      <p>
+        Aplicable a Smart Farming e ingeniería.
+      </p>
+    </div>
+
+  </div>
+
+</div>

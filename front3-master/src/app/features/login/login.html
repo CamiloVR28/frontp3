@@ -1,0 +1,65 @@
+login.html:
+
+<div class="login-background">
+
+  <div class="login-card">
+
+    <!-- 🌱 LOGO -->
+    <img src="/images/logo.png" alt="Sistema de monitoreo" class="logo">
+
+    <!-- 🧠 TÍTULO -->
+    <h2>GreenCES</h2>
+    <p class="subtitle">
+      Accede al sistema para visualizar y analizar las condiciones ambientales en tiempo real.
+    </p>
+
+    <!-- 🔐 FORMULARIO -->
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <!-- 📧 EMAIL -->
+      <label>Correo electrónico</label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Ej: sara@correo.com"
+      />
+
+      <small *ngIf="emailCtrl?.touched && emailCtrl?.invalid" class="error-text">
+        Ingresa un correo válido
+      </small>
+
+      <!-- 🔑 PASSWORD -->
+      <label>Contraseña</label>
+
+      <div class="password-container">
+        <input
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          placeholder="••••••"
+          autocomplete="current-password"
+        />
+
+        <img
+          (click)="togglePasswordVisibility()"
+          [src]="hidePassword ? '/images/visibility_off_icon.svg' : '/images/visibility_on_icon.svg'"
+          class="eye-icon"
+          alt="Ver contraseña"
+        />
+      </div>
+
+      <small *ngIf="passwordCtrl?.touched && passwordCtrl?.invalid" class="error-text">
+        La contraseña debe tener mínimo 6 caracteres
+      </small>
+
+      <!-- ⚠️ ERROR GENERAL -->
+      <small *ngIf="errorMsg" class="error-text">
+        {{ errorMsg }}
+      </small>
+
+      <!-- 🚀 BOTÓN -->
+      <button type="submit">Ingresar al sistema</button>
+
+    </form>
+
+
+</div>
